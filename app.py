@@ -711,7 +711,8 @@ def predict():
     else:
         model, feats, X_orig, scaler, imputer = MODEL_H, FEATS_H, X_ORIG_H, SCALER_H, IMPUTER_H
 
-    user_input = {f: float(values.get(f, X_orig[f].median())) for f in feats}
+    # NEW LINE:
+    user_input = {f: float(values.get(f, data_bundle[m_type]["medians"][f])) for f in feats}
     base_pred, ice_results = compute_ice_and_threshold(
         model, feats, X_orig, scaler, imputer, user_input)
 
