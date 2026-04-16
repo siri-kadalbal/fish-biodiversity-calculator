@@ -1,4 +1,25 @@
 import streamlit as st
+
+# Custom CSS to hide the GitHub icon, Fork button, and Streamlit menu
+hide_style = """
+    <style>
+    /* Hides the top header bar (contains GitHub icon and Fork button) */
+    header {visibility: hidden;}
+    
+    /* Hides the 'three-dot' main menu on the top right */
+    #MainMenu {visibility: hidden;}
+    
+    /* Optional: Hides the 'Made with Streamlit' footer at the bottom */
+    footer {visibility: hidden;}
+    
+    /* This ensures the app content starts at the top of the page */
+    .block-container {
+        padding-top: 2rem;
+    }
+    </style>
+    """
+
+st.markdown(hide_style, unsafe_allow_html=True)
 import pandas as pd
 import numpy as np
 import joblib
