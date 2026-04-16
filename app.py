@@ -103,7 +103,7 @@ def detect_thresholds(grid_orig, curve, feat=None):
 # ══════════════════════════════════════════════════════
 data_bundle = load_bundle()
 
-st.title("🌊 Stream Biodiversity Predictor")
+st.title("Stream Biodiversity Predictor")
 st.markdown("Predict Shannon Diversity H' and identify ecological thresholds based on model interpretability (ICE).")
 
 # Model Selection
@@ -126,7 +126,7 @@ with st.container(border=True):
             user_vals[f] = float(val) if val else med
 
 # Prediction Logic
-if st.button("🚀 Run Prediction & Analysis", type="primary", use_container_width=True):
+if st.button("Run Prediction & Analysis", type="primary", use_container_width=True):
     with st.spinner("Calculating ICE curves and thresholds..."):
         # Predict
         row_arr = np.array([[user_vals[f] for f in feats]])
