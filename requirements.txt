@@ -1,10 +1,7 @@
-numpy
+streamlit
 pandas
-scikit-learn
-xgboost
+numpy
 joblib
 matplotlib
-shap
-huggingface_hub
-gunicorn
-streamlit
+scikit-learn
+xgboost
