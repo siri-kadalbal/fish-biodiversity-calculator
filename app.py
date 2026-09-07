@@ -20,6 +20,7 @@ import xgboost as xgb
 from sklearn.impute import KNNImputer
 from sklearn.preprocessing import StandardScaler
 import warnings
+from plausibility_checks import check_all_plausibility
 warnings.filterwarnings("ignore")
 
 st.set_page_config(page_title="Stream Biodiversity Predictor", layout="wide")
@@ -209,6 +210,7 @@ if st.button("Run Prediction & Analysis", type="primary", use_container_width=Tr
     # NEW: range warnings on typed values before predicting
     warnings_list = [w for f in base_feats
                       if (w := check_range(f, user_vals[f], X_orig)) is not None]
+    warnings_list += check_all_plausibility(user_vals)
     if warnings_list:
         with st.expander(f"⚠️ {len(warnings_list)} input(s) outside training range", expanded=True):
             for w in warnings_list:
